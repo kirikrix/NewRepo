@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e296fc3352ae4b689bd25a06a79c4680" Name="Diagram1">
+        <EntityTypeShape EntityType="DB.Client" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Gender" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Order" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.OrderProd" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Position" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Product" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.ProductType" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Role" Width="1.5" PointX="1.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.Staff" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.sysdiagrams" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB.UserAccount" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="DB.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Client_UserAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Staff_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Order_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_OrderProd_Order1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_OrderProd_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Staff_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_UserAccount_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DB.FK_Staff_UserAccount" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
