@@ -1,5 +1,4 @@
-﻿using Bakery_app.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 using static Bakery_app.ClassHelper.EFClass;
+using Bakery_app.Windows_app;
+using Bakery_app.DB;
 
 namespace Bakery_app.Windows_app
 {
@@ -26,40 +28,40 @@ namespace Bakery_app.Windows_app
             InitializeComponent();
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void Reg_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(LoginBox.Text))
+            if (string.IsNullOrWhiteSpace(TbLogin.Text))
             {
                 MessageBox.Show("Пустой логин");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(EmailBox.Text))
+            if (string.IsNullOrWhiteSpace(TbEmail.Text))
             {
                 MessageBox.Show("Пустой email");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(PasswordBox.Text))
+            if (string.IsNullOrWhiteSpace(TbPassword.Text))
             {
                 MessageBox.Show("Пустой пароль");
                 return;
             }
             UserAccount user = new UserAccount()
             {
-                LoginName = LoginBox.Text.Trim(),
-                Email = EmailBox.Text.Trim(),
-                Password = PasswordBox.Text.Trim(),
+                LoginName = TbLogin.Text.Trim(),
+                Email = TbEmail.Text.Trim(),
+                Password = TbPassword.Text.Trim(),
                 IdRole = 1
             };
             ContextDB.UserAccount.Add(user);
             ContextDB.SaveChanges();
-            LoginBox.Text = "";
-            EmailBox.Text = "";
-            PasswordBox.Text = "";
+            TbLogin.Text = "";
+            TbEmail.Text = "";
+            TbPassword.Text = "";
             MessageBox.Show("Регистрация успешно выполнена! Вернитесь к окну авторизации и выполните вход.", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
             main.Show();

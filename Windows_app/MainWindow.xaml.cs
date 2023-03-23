@@ -1,5 +1,4 @@
-﻿using Bakery_app.Windows_app;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Bakery_app.ClassHelper.EFClass;
 
-namespace Bakery_app
+using static Bakery_app.ClassHelper.EFClass;
+using Bakery_app.Windows_app;
+using System.Runtime.Remoting.Contexts;
+
+namespace Bakery_app.Windows_app
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AuthWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -27,41 +28,33 @@ namespace Bakery_app
             InitializeComponent();
         }
 
-        private void Register_Click(object sender, RoutedEventArgs e)
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWindow reg = new RegistrationWindow();
-            reg.Show();
-            this.Close();
-            
-
-
+            var userAuth = ContextDB.UserAccount.ToList()
+                .Where(i => i.LoginName == TbLogin.Text &&
+                i.Password == PbPassword.Password)
+                .FirstOrDefault();
+                
+            if (userAuth != null)
+            {
+                
+                ProductList productList = new ProductList();
+                productList.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден");
+            }
 
         }
 
-        private void Avtorization_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            string login = LoginBox.Text;
-            string password = PasswordBox.Text;
+            RegistrationWindow registrationUserWindow = new RegistrationWindow();
+            registrationUserWindow.Show();
+            this.Close();
 
-            if (login == string.Empty || password == string.Empty)
-            {
-                MessageBox.Show("Введите данные!");
-                return;
-            }
-
-            var accounts = ContextDB.UserAccount.ToList();
-            var user = accounts.FirstOrDefault(i => (i.LoginName == login));
-            if (user == null)
-            {
-                MessageBox.Show("Такого пользователя не существует!");
-                return;
-            }
-            if (PasswordBox.Text == user.Password)
-            {
-               MessageBox.Show("Вход успешно выполнен!", "Вход", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            }
         }
     }
 }
-

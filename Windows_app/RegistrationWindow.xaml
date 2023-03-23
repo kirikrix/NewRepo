@@ -5,43 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bakery_app.Windows_app"
         mc:Ignorable="d"
-        Title="Registration" Height="Auto" Width="Auto" WindowStartupLocation = "CenterScreen" >
-    <Grid Background="#B0E0E6" Height="350">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" MinWidth="150"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="1*" MinWidth="150"/>
-        </Grid.ColumnDefinitions>
+        Title="Registration" 
+        Height="700" 
+        Width="500"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="40,0,40,0" >
+            <Image Height="100" Width="100" Source="C:\Users\Kirill\source\repos\Kubinev_Bakery\Kubinev_Bakery/logo.png"/>
+            <TextBlock Text="Регистрация" 
+                       FontSize="40" 
+                       TextAlignment="Center" 
+                       Foreground="Black"/>
 
-        <Border CornerRadius="10" Grid.Row="1" Grid.Column="1">
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="1,0">
-                    <GradientStop Color="#00FF7F" Offset="1"/>
-                    <GradientStop Color="#00FFFF" Offset="0.626"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+            <TextBlock Height="50"
+                       Text="Введите логин"
+                       FontSize="20"
+                       TextAlignment="Left"
+                       Foreground="Gray"
+                       Margin="0 20 0 0 "/>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="Registration" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="TbLogin"
+                     Height="50"
+                     FontSize="20"
+                     TextAlignment="Left"
+                     Foreground="Black" BorderBrush="#FF68D1DE"/>
+            <TextBlock
+                Height="50"
+                FontSize="20"
+                TextAlignment="Left"
+                Foreground="Gray"
+                Text="Введите пароль "
+                Margin="0 20 0 0"
+                />
 
-        <TextBlock Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" Text="Login:" FontSize="25" Margin="10,10,0,0"/>
-        <TextBox x:Name="LoginBox" Grid.Column="1" Grid.Row="2" Width="300" Height="40" Margin="0,10,0,0" FontSize="18" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox
+                x:Name="TbPassword"
+                Height="50"
+                FontSize="20"
+                Foreground="Black" BorderBrush="#FF68D1DE"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" TextWrapping="Wrap" Text="Email:" FontSize="25" Margin="10,10,0,0"/>
-        <TextBox x:Name="EmailBox" Grid.Column="1" Grid.Row="3" Width="300" Height="40" Margin="0,10,0,0" FontSize="18" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="0" Grid.Row="4" TextWrapping="Wrap" Text="Password:" FontSize="25" Margin="10,10,0,0"/>
-        <TextBox x:Name="PasswordBox" Grid.Column="1" Grid.Row="4" Width="300" Height="40" Margin="0,10,0,0" FontSize="18" Foreground="Black" HorizontalAlignment="Center"/>
-        <Button x:Name="RegisterButton" Background="#D8BFD8" Grid.Column="1" Grid.Row="6" Content="Register" Width="100" Height="40" FontSize="18" Margin="40,0,0,0" VerticalAlignment="Top" Click="RegisterButton_Click" HorizontalAlignment="Left"/>
-        <Button x:Name="CancelButton" Background="#D8BFD8" Grid.Column="1" Grid.Row="6" Content="Cancel" Width="100" Height="40" FontSize="18" Margin="165,0,35,0" VerticalAlignment="Top" Click="CancelButton_Click"/>
+            <TextBlock Height="50"
+                       Text="Введите Email"
+                       FontSize="20"
+                       TextAlignment="Left"
+                       Foreground="Gray"
+                       Margin="0 20 0 0 "/>
+
+            <TextBox x:Name="TbEmail"
+                     Height="50"
+                     FontSize="20"
+                     TextAlignment="Left"
+                     Foreground="Black" BorderBrush="#FF68D1DE"/>
+            <TextBlock TextWrapping="Wrap"
+                       Text=""
+                       Height="30"
+                     FontSize="20"/>
+            <Button x:Name="Reg"
+                    Height="50"
+                    FontSize="20"
+                    Width="124"
+                    Background="#B0E0E6"
+                    Content="Регистрация" Click="Reg_Click"/>
+            <TextBlock TextWrapping="Wrap"
+                       Text=""
+                       Height="10"
+                     FontSize="20"/>
+            <Button x:Name="Cancel"
+                    Height="50"
+                    FontSize="20"
+                    Width="124"
+                    Background="#B0E0E6"
+                    Content="Назад" Click="Cancel_Click"/>
+
+        </StackPanel>
     </Grid>
 </Window>
-
